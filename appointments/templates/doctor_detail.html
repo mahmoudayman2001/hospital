@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <h1 class="card-title">{{ object.name }}</h1>
+                    <p class="card-text">{{ object.specialty }}</p>
+
+                    <h2>Appointments:</h2>
+                    <ul class="list-group">
+                        {% for appointment in appointments %}
+                        <li class="list-group-item">{{appointment.name}} - {{ appointment.day }} at {{ appointment.time}}</li>
+
+                        {% empty %}
+                        <li class="list-group-item">No appointments found</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
